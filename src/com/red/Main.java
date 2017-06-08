@@ -24,7 +24,7 @@ public class Main {
         List<Student> test = new ArrayList<>();
 
         try {
-            studentsDeserialization(path, test);
+            test = studentsDeserialization(path);
             System.out.println("Deserialization is end.");
         }
         catch (Exception ex) {
@@ -45,8 +45,8 @@ public class Main {
         }
     }
 
-    public static void studentsDeserialization(String path, List<Student> students){
-
+    public static List<Student> studentsDeserialization(String path){
+        List<Student> students = new ArrayList<>();
         try {
             FileInputStream fileInputStream = new FileInputStream(path);
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
@@ -58,5 +58,7 @@ public class Main {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+
+        return students;
     }
 }
